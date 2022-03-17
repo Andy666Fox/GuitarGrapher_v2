@@ -3,7 +3,6 @@ from tensorflow import keras
 from abc import ABC
 import librosa as lb
 import numpy as np
-from torch import classes
 
 # Function from 'model.ipynb' file
 def feature_exctractor(auddata):

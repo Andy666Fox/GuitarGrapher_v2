@@ -1,5 +1,19 @@
 # Model Settings
 
-# class_key = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'Barrel': 8, 'Flage': 9, 'PoffHon': 10, 'Slap': 11, 'Slide': 12}
-ModelPath:
-  path: './model/model.pkl'
+# class_keys = {1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E', 6: 'F', 7: 'G', 8: 'Barrel', 9: 'Flage', 10: 'PoffHon', 11: 'Slap', 12: 'Slide'}
+ModelData:
+  path: './model'
+  vars_path: './model/variables'
+  raw_model_path: './model.ipynb'
+  main_model_class_path: './w_model.py'
+
+TrainingData:
+  path: './input/notes_v2'
+  target_classes: {'С': 'Do',
+                   'D': 'Re',
+                   'E': 'Mi',
+                   'F': 'Fa',
+                   'G': 'Sol',
+                   'A': 'La',
+                   'B': 'Si'}
+
