@@ -11,8 +11,11 @@ The training was done on recorded .wav with guitar sounds. (216 samples). Final 
 ![](https://github.com/Andy666Fox/GuitarGrapher_v2/blob/master/readme_images/accuracy.png?raw=true)
 ![](https://github.com/Andy666Fox/GuitarGrapher_v2/blob/master/readme_images/loss.png?raw=true)
 
+---
 
 ## TODO
 Now we are working on finding the best way to connect the work of the model with the module that reads the sound from the microphone
+
+![](https://github.com/Andy666Fox/GuitarGrapher_v2/blob/master/readme_images/load.gif?raw=true)
 
 
