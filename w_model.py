@@ -1,10 +1,11 @@
+# Imports
 from tensorflow import keras
 from abc import ABC
 import librosa as lb
 import numpy as np
 from torch import classes
 
-
+# Function from 'model.ipynb' file
 def feature_exctractor(auddata):
         data = lb.feature.mfcc(auddata, n_mfcc=128)
         data = np.mean(data, axis=1)
@@ -12,6 +13,7 @@ def feature_exctractor(auddata):
         return data
 
 
+# Main Audio Model class
 class AModel(ABC):
 
     def __init__(self):
