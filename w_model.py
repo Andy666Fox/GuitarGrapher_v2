@@ -5,22 +5,28 @@ import numpy as np
 from torch import classes
 
 
+def feature_exctractor(auddata):
+        data = lb.feature.mfcc(auddata, n_mfcc=128)
+        data = np.mean(data, axis=1)
+
+        return data
+
+
 class AModel(ABC):
 
     def __init__(self):
         self.model = keras.models.load_model('./model')
-        self.classes = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'Barrel': 8, 'Flage': 9, 'PoffHon': 10, 'Slap': 11, 'Slide': 12}
+        self.classes = {1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E', 6: 'F', 7: 'G', 8: 'Barrel', 9: 'Flage', 10: 'PoffHon', 11: 'Slap', 12: 'Slide'}
 
 
     def dpredict(self, aud) -> str:
 
-        def feature_exctractor(auddata):
-            data = lb.feature.mfcc(auddata, n_mfcc=128)
-            data = np.mean(data, axis=1)
+        if np.std(aud) < 1.4:
+            print('Silence')
+            return 0
+        else:
+        
+            to_predict = np.array([feature_exctractor(aud)])
+            classid = np.argmax(self.model.predict(to_predict)[0])
 
-            return data
-
-        to_predict = feature_exctractor(aud)
-        classid = np.argmax(self.model.predict(to_predict)[0])
-
-        return classes[classid]
+            return self.classes[classid]
