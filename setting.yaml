@@ -15,5 +15,10 @@ TrainingData:
                    'F': 'Fa',
                    'G': 'Sol',
                    'A': 'La',
-                   'B': 'Si'}
+                   'B': 'Si',
+                   'Barrel': "Wrist hit on guitar deck",
+                   'Flage': 'Reception of extracting sound at the 12th fret',
+                   'PoffHon': 'hitting the fret with the index finger',
+                   'Slap': 'Flicking your finger on the bass strings',
+                   'Slide': 'moving a pressed string along the frets'}
 
