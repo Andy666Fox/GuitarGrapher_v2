@@ -6,7 +6,7 @@ import numpy as np
 
 # Function from 'model.ipynb' file
 def feature_exctractor(auddata):
-        data = lb.feature.mfcc(auddata, n_mfcc=128)
+        data = lb.feature.mfcc(auddata, n_mfcc=2048)
         data = np.mean(data, axis=1)
 
         return data
@@ -23,8 +23,7 @@ class AModel(ABC):
     def dpredict(self, aud) -> str:
 
         if np.std(aud) < 1.4:
-            print('Silence')
-            return 0
+            return 'Silence'
         else:
         
             to_predict = np.array([feature_exctractor(aud)])
