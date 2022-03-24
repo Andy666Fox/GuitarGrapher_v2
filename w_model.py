@@ -5,7 +5,7 @@ import librosa as lb
 import numpy as np
 
 # Function from 'model.ipynb' file
-def feature_exctractor(auddata):
+def feature_exctractor(auddata: np.array) -> np.array:
         data = lb.feature.mfcc(auddata, n_mfcc=2048)
         data = np.mean(data, axis=1)
 
@@ -20,7 +20,7 @@ class AModel(ABC):
         self.classes = {1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E', 6: 'F', 7: 'G', 8: 'Barrel', 9: 'Flage', 10: 'PoffHon', 11: 'Slap', 12: 'Slide'}
 
 
-    def dpredict(self, aud) -> str:
+    def dpredict(self, aud: np.array) -> str:
 
         if np.std(aud) < 1.4:
             return 'Silence'

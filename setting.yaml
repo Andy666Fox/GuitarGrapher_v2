@@ -7,6 +7,9 @@ ModelData:
   raw_model_path: './model.ipynb'
   main_model_class_path: './w_model.py'
 
+
+# Data Settings
+
 TrainingData:
   path: './input/notes_v2'
   target_classes: {'С': 'Do',
