@@ -4,6 +4,7 @@ from abc import ABC
 import librosa as lb
 import numpy as np
 
+
 # Function from 'model.ipynb' file
 def feature_exctractor(auddata: np.array) -> np.array:
         data = lb.feature.mfcc(auddata, n_mfcc=2048)
