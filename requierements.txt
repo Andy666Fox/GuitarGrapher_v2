@@ -1,4 +1,4 @@
-torch==1.9.0+cpu
+torch==1.9.0
 sklearn==1.0
 tensorflow==2.6.0
 librosa==0.8.1
