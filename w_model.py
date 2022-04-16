@@ -18,7 +18,18 @@ class AModel(ABC):
 
     def __init__(self):
         self.model = keras.models.load_model('./model')
-        self.classes = {1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E', 6: 'F', 7: 'G', 8: 'Barrel', 9: 'Flage', 10: 'PoffHon', 11: 'Slap', 12: 'Slide'}
+        self.classes = {1: 'A', 
+                        2: 'B', 
+                        3: 'C', 
+                        4: 'D', 
+                        5: 'E', 
+                        6: 'F', 
+                        7: 'G', 
+                        8: 'Barrel', 
+                        9: 'Flage', 
+                        10: 'PoffHon', 
+                        11: 'Slap', 
+                        12: 'Slide'}
 
 
 
