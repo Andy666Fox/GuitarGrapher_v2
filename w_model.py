@@ -5,7 +5,7 @@ import librosa as lb
 import numpy as np
 
 
-# Function from 'model.ipynb' file
+
 def feature_exctractor(auddata: np.array) -> np.array:
     """Function to convert the audio data into an array for the model to work with
 
