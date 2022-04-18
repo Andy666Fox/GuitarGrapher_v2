@@ -7,10 +7,19 @@ import numpy as np
 
 # Function from 'model.ipynb' file
 def feature_exctractor(auddata: np.array) -> np.array:
-        data = lb.feature.mfcc(auddata, n_mfcc=2048)
-        data = np.mean(data, axis=1)
+    """Function to convert the audio data into an array for the model to work with
 
-        return data
+    Args:
+        auddata (np.array): Data array received from librosa.load(file)
+
+    Returns:
+        np.array: weighted array mel spectrogram
+    """
+    
+    data = lb.feature.mfcc(auddata, n_mfcc=2048)
+    data = np.mean(data, axis=1)
+
+    return data
 
 
 # Main Audio Model class
@@ -35,6 +44,15 @@ class AModel(ABC):
 
 
     def dpredict(self, aud: np.array) -> str:
+        
+        """Wrapper for convenient work with model predictions
+        
+        Args:
+            aud (np.array): Data received from the feature_extractor() function
+
+        Returns:
+            dict[key]: Model predicted class
+        """
 
         to_predict = np.array([feature_exctractor(aud)])
         classid = np.argmax(self.model.predict(to_predict)[0])
