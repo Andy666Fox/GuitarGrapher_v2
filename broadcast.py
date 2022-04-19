@@ -3,7 +3,6 @@ import pyaudio
 import numpy as np
 from IPython.display import clear_output
 from w_model import AModel, feature_exctractor
-import librosa as lb 
 import time
 
 # Audio stream settings
