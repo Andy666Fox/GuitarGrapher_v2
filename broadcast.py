@@ -8,7 +8,7 @@ import time
 # Audio stream settings
 CHUNK = 4096 # number of data points to read at a time
 RATE = 44100 # time resolution of the recording device (Hz)
-DEVICE = 1 # default
+DEVICE = 1 # default audio device
  
 p = pyaudio.PyAudio()
 model = AModel()
