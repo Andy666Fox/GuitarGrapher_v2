@@ -19,7 +19,7 @@ def feature_exctractor(auddata: np.array) -> np.array:
     data = lb.feature.mfcc(auddata, n_mfcc=2048)
     data = np.mean(data, axis=1)
 
-    return data
+    return np.log(data ** 2)
 
 
 # Main Audio Model class
@@ -38,7 +38,8 @@ class AModel(ABC):
                         9: 'Flage', 
                         10: 'PoffHon', 
                         11: 'Slap', 
-                        12: 'Slide'}
+                        12: 'Slide',
+                        13: 'Silence'}
 
 
 
