@@ -114,4 +114,4 @@ def listen(chunk=4096, rate=44100, device=1, timer=10):
         print(res)
         t -= 1
         
-    return predicted 
+    print(predicted) 
