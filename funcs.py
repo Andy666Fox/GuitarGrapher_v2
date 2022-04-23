@@ -44,7 +44,7 @@ class AModel(ABC):
         to_predict = np.array([feature_exctractor(aud)])
         classid = np.argmax(self.model.predict(to_predict)[0])
 
-        return self.classes[classid]
+        return (self.classes[classid], self.model.predict(to_predict)[0])
 
 
 
@@ -114,4 +114,6 @@ def listen(chunk=4096, rate=44100, device=1, timer=10):
         print(res)
         t -= 1
         
-    print(predicted) 
+    #print(predicted) 
+    
+    return predicted

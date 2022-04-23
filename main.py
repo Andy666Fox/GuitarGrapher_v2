@@ -1,7 +1,10 @@
 from funcs import *
+from m_draw import *
 
 import warnings
-warnings.filterwarnings('ignore')
-warnings.simplefilter(action="ignore", category=FutureWarning)
+#warnings.filterwarnings('ignore')
+#warnings.simplefilter(action="ignore", category=FutureWarning)
 
-listen(timer=5)
+aarr = listen(timer=3)
+draw(aarr)
+
