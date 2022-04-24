@@ -44,7 +44,7 @@ class AModel(ABC):
         to_predict = np.array([feature_exctractor(aud)])
         classid = np.argmax(self.model.predict(to_predict)[0])
 
-        return (self.classes[classid], self.model.predict(to_predict)[0])
+        return self.model.predict(to_predict)[0]
 
 
 
