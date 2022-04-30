@@ -8,7 +8,7 @@ from abc import ABC
 import librosa as lb
 import numpy as np
 
-#----------------------------------------------------------Perhaps this class does not belong here, but I did not figure out where to put it
+
 class AModel(ABC):
 
     def __init__(self):
@@ -48,7 +48,6 @@ class AModel(ABC):
 
 
 
-#-----------------------------------------------------------------------And these guys are clearly in the right place.
 def feature_exctractor(auddata: np.array) -> np.array:
     """Function to convert the audio data into an array for the model to work with
 
