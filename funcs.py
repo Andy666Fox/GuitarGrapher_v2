@@ -10,28 +10,26 @@ import numpy as np
 
 
 class AModel(ABC):
-
     def __init__(self):
-        self.model = keras.models.load_model('./model')
-        self.classes = {1: 'A', 
-                        2: 'B', 
-                        3: 'C', 
-                        4: 'D', 
-                        5: 'E', 
-                        6: 'F', 
-                        7: 'G', 
-                        8: 'Barrel', 
-                        9: 'Flage', 
-                        10: 'PoffHon', 
-                        11: 'Slap', 
-                        12: 'Slide',
-                        13: 'Silence'}
-
-
-
+        self.model = keras.models.load_model("./model")
+        self.classes = {
+            1: "A",
+            2: "B",
+            3: "C",
+            4: "D",
+            5: "E",
+            6: "F",
+            7: "G",
+            8: "Barrel",
+            9: "Flage",
+            10: "PoffHon",
+            11: "Slap",
+            12: "Slide",
+            13: "Silence",
+        }
 
     def dpredict(self, aud: np.array) -> str:
-        
+
         """Wrapper for convenient work with model predictions
         
         Args:
@@ -47,7 +45,6 @@ class AModel(ABC):
         return self.model.predict(to_predict)[0]
 
 
-
 def feature_exctractor(auddata: np.array) -> np.array:
     """Function to convert the audio data into an array for the model to work with
 
@@ -57,16 +54,15 @@ def feature_exctractor(auddata: np.array) -> np.array:
     Returns:
         np.array: weighted array mel spectrogram
     """
-    
+
     data = lb.feature.mfcc(auddata, n_mfcc=2048)
     data = np.mean(data, axis=1)
 
     return np.log(data ** 2)
 
 
-
 def listen(chunk=4096, rate=44100, device=1, timer=10):
-    
+
     """Function of recognition of notes from the input data from the microphone
     
     Args:
@@ -78,41 +74,43 @@ def listen(chunk=4096, rate=44100, device=1, timer=10):
     Returns:
         predicted [list]: list of predicted note values
     """
-    
+
     # Microphone and ML model initializing
     p = pyaudio.PyAudio()
     model = AModel()
-    
-    stream = p.open(format=pyaudio.paInt32,
-                    channels=2,
-                    rate=rate,
-                    input=True,
-                    frames_per_buffer=chunk,
-                    input_device_index=device)
-    
+
+    stream = p.open(
+        format=pyaudio.paInt32,
+        channels=2,
+        rate=rate,
+        input=True,
+        frames_per_buffer=chunk,
+        input_device_index=device,
+    )
+
     predicted = []
-    
+
     t = timer * 6
-    
+
     # Delay to prepare
     for i in range(5, 0, -1):
-        print(f'Recording will start in {i} sec ')
+        print(f"Recording will start in {i} sec ")
         time.sleep(1)
-    print('RECORDING...')
-    
+    print("RECORDING...")
+
     # Main loop
     while t:
-        
+
         time.sleep(0.4)
         indata = np.fromstring(stream.read(chunk), dtype=np.int32)
-        
+
         fftData = abs(np.fft.rfft(indata)) ** 2
-        
+
         res = model.dpredict(fftData[1:])
         predicted.append(res)
         print(res)
         t -= 1
-        
-    #print(predicted) 
-    
+
+    # print(predicted)
+
     return predicted
