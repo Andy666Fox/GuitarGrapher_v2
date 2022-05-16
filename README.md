@@ -1,6 +1,6 @@
 # Guitar Grapher
 
-![](https://storage.googleapis.com/kaggle-datasets-images/2130608/3543007/2b5759aca702a3566f10691e9e1b94c1/dataset-cover.jpg?t=2022-04-28-10-20-00)
+![](https://github.com/Andy666Fox/GuitarGrapher_v2/blob/master/readme_images/GG_logo.jpg?raw=true)
 ## Pretty Crazy Way to Visualize Guitar Playing
 
 ---
