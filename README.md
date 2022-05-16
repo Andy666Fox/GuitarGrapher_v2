@@ -1,5 +1,20 @@
 # Guitar Grapher
-## Updates people, updates!
+
+![](https://storage.googleapis.com/kaggle-datasets-images/2130608/3543007/2b5759aca702a3566f10691e9e1b94c1/dataset-cover.jpg?t=2022-04-28-10-20-00)
+## Pretty Crazy Way to Visualize Guitar Playing
+
+---
+
+## **Updates people, updates!**
+---
+
+### **16.05.2022**
+1. Completed initial improvements of the recognition system
+2. Finally added interactive mode
+3. Minor refactoring done
+4. Prepared infrastructure for the implementation of graphical display
+
+### ~~How many fucking smart words.Actually it was fuc.. up~~
 ---
 ### **17.03.2022**
 Model selection, training and tuning completed.
@@ -14,8 +29,9 @@ The training was done on recorded .wav with guitar sounds. (216 samples). Final 
 ---
 
 ## TODO
-Now we are working on finding the best way to connect the work of the model with the module that reads the sound from the microphone
+* ~~Now we are working on finding the best way to connect the work of the model with the module that reads the sound from the microphone~~ (Closed in 16/05/2022)
+* At the moment, the main task is to finalize the graphic module
 
-![](https://github.com/Andy666Fox/GuitarGrapher_v2/blob/master/readme_images/load.gif?raw=true)
+
 
 

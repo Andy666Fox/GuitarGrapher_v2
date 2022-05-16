@@ -13,6 +13,7 @@ def run():
     ch = input('[?] Start recording? (y/n): ')
     if ch.lower() == 'y':
         timer = input('[?] Recording time (sec): ')
+        print('---------------------------------')
         aarr = listen(timer=int(timer))
         
     elif ch.lower() == 'n':
