@@ -8,6 +8,15 @@ from abc import ABC
 import librosa as lb
 import numpy as np
 
+import warnings
+
+warnings.filterwarnings("ignore")
+warnings.simplefilter(action="ignore", category=FutureWarning)
+
+import os
+import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 
 class AModel(ABC):
     def __init__(self):
@@ -42,7 +51,7 @@ class AModel(ABC):
         to_predict = np.array([feature_exctractor(aud)])
         classid = np.argmax(self.model.predict(to_predict)[0])
 
-        return self.model.predict(to_predict)[0]
+        return self.classes[classid]
 
 
 def feature_exctractor(auddata: np.array) -> np.array:
@@ -58,7 +67,7 @@ def feature_exctractor(auddata: np.array) -> np.array:
     data = lb.feature.mfcc(auddata, n_mfcc=2048)
     data = np.mean(data, axis=1)
 
-    return np.log(data ** 2)
+    return np.log10(data ** 2)
 
 
 def listen(chunk=4096, rate=44100, device=1, timer=10):
@@ -69,7 +78,7 @@ def listen(chunk=4096, rate=44100, device=1, timer=10):
         chunk [int]: Input chunk size
         rate [int]: Sampling frequency
         device [int]: Microphone ID
-        timer [int]: Function running time
+        timer [int]: Recording running time
 
     Returns:
         predicted [list]: list of predicted note values
@@ -92,11 +101,12 @@ def listen(chunk=4096, rate=44100, device=1, timer=10):
 
     t = timer * 6
 
+    
     # Delay to prepare
     for i in range(5, 0, -1):
-        print(f"Recording will start in {i} sec ")
+        print(f"[i] Recording will start in {i} sec ")
         time.sleep(1)
-    print("RECORDING...")
+    print("[!] ---------RECORDING...---------")
 
     # Main loop
     while t:
@@ -108,9 +118,11 @@ def listen(chunk=4096, rate=44100, device=1, timer=10):
 
         res = model.dpredict(fftData[1:])
         predicted.append(res)
-        print(res)
+        print(f'[i] Predicted sound: {res}')
         t -= 1
 
-    # print(predicted)
+        # print(predicted)
 
     return predicted
+  
+        
