@@ -14,6 +14,8 @@
 3. Minor refactoring done
 4. Prepared infrastructure for the implementation of graphical display
 
+![](https://github.com/Andy666Fox/GuitarGrapher_v2/blob/master/readme_images/cmd_logo.png?raw=true)
+
 ### ~~How many fucking smart words.Actually it was fuc.. up~~
 ---
 ### **17.03.2022**
