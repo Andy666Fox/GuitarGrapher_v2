@@ -20,6 +20,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 class AModel(ABC):
     def __init__(self):
+        
         self.model = keras.models.load_model("./model")
         self.classes = {
             1: "A",
@@ -56,10 +57,8 @@ class AModel(ABC):
 
 def feature_exctractor(auddata: np.array) -> np.array:
     """Function to convert the audio data into an array for the model to work with
-
     Args:
         auddata (np.array): Data array received from librosa.load(file)
-
     Returns:
         np.array: weighted array mel spectrogram
     """
@@ -73,7 +72,6 @@ def feature_exctractor(auddata: np.array) -> np.array:
 def listen(chunk=4096, rate=44100, device=1, timer=10):
 
     """Function of recognition of notes from the input data from the microphone
-    
     Args:
         chunk [int]: Input chunk size
         rate [int]: Sampling frequency
