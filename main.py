@@ -10,7 +10,9 @@ warnings.simplefilter(action="ignore", category=FutureWarning)
 def run():
     logo = text2art('GUITAR GRAPHER')
     print(logo)
+    
     ch = input('[?] Start recording? (y/n): ')
+    
     if ch.lower() == 'y':
         timer = input('[?] Recording time (sec): ')
         print('---------------------------------')
