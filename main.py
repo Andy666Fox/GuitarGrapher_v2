@@ -7,6 +7,7 @@ import warnings
 warnings.filterwarnings("ignore")
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
+
 def run():
     logo = text2art('GUITAR GRAPHER')
     print(logo)
