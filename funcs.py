@@ -1,7 +1,6 @@
 import pyaudio
 import numpy as np
 import time
-from tqdm import tqdm
 
 from tensorflow import keras
 from abc import ABC
@@ -104,7 +103,6 @@ def listen(chunk=4096, rate=44100, device=1, timer=10):
     # Delay to prepare
     for i in range(5, 0, -1):
         print(f"[i] Recording will start in {i} sec ")
-        time.sleep(1)
     print("[!] ---------RECORDING...---------")
 
     # Main loop
